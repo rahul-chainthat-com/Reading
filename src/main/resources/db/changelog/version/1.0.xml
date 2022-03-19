@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="create tables" author="rahul">
+        <createTable tableName="customer">
+            <column name="id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime"/>
+        </createTable>
+        <createTable tableName="book">
+            <column name="id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="number"/>
+            <column name="amount" type="number"/>
+            <column name="created_at" type="datetime"/>
+        </createTable>
+        <createTable tableName="order_header">
+            <column name="id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="number"/>
+            <column name="total_amount" type="number"/>
+            <column name="created_at" type="datetime"/>
+        </createTable>
+
+        <createTable tableName="order_items">
+            <column name="id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="header_id" type="number">
+                <constraints nullable="false"/>
+            </column>
+            <column name="book_id" type="number"/>
+            <column name="amount" type="number"/>
+            <column name="quantity" type="number"/>
+            <column name="created_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="inserts" author="rahul" >
+        <insert tableName="book">
+            <column name="id" value="1"/>
+            <column name="name" value="Book1"/>
+            <column name="author" value="Rahul"/>
+            <column name="quantity" value="20"/>
+            <column name="amount" value="120"/>
+        </insert>
+        <insert tableName="book">
+            <column name="id" value="2"/>
+            <column name="name" value="Book2"/>
+            <column name="author" value="Singh"/>
+            <column name="quantity" value="10"/>
+            <column name="amount" value="120.8"/>
+        </insert>
+        <insert tableName="book">
+            <column name="id" value="3"/>
+            <column name="name" value="Book3"/>
+            <column name="author" value="India"/>
+            <column name="quantity" value="30"/>
+            <column name="amount" value="125.99"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
