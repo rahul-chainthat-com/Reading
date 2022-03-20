@@ -18,6 +18,7 @@ mvn clean install
 * You will find "readingisgood.postman_collection.json" collection in project structure inside resource/dev folder.
 
 ## Step to test the project
+* authenticate and use the token as bearer token for all other api's 
 * create books
 * create customer
 * create order
