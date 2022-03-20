@@ -1,6 +1,6 @@
 <h1 align="center">Reading is good Sample Project👋</h1>
 
-> This project is a poc project manages book warehouse
+> This project is a poc project to manages book warehouse
 
 ### ✨ [Demo](http://localhost:8080)
 
@@ -40,11 +40,4 @@ docker run -p 8080:8080 springio/getir-spring-boot-docker
 ## Author
 
 👤 **Rahul Singh**
-
-* Website: erkanerkisi.github.io
-* Github: [@erkanerkisi](https://github.com/erkanerkisi)
-
-## Show your support
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+* Github: (https://github.com/rahul-chainthat-com/)
