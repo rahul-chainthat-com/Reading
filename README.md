@@ -1,9 +1,5 @@
 <h1 align="center">Reading is good Sample Project👋</h1>
 
-> This project is a poc project to manages book warehouse
-
-### ✨ [Demo](http://localhost:8080)
-
 ## Install
 
 ```sh
