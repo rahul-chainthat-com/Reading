@@ -13,6 +13,9 @@ mvn clean install
 
 * step 2 run: docker run -p 8080:8080 springio/getir-spring-boot-docker
 
+## Swagger Docuementaion URL
+http://localhost:8080/swagger-ui/#/
+
 ## Postman Collection
 
 * You will find "readingisgood.postman_collection.json" collection in project structure inside resource/dev folder.
