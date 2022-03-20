@@ -10,15 +10,15 @@ mvn clean install
 ## pre-requisite
 ## docker
 
-## step 1 build
+* step 1 build
 docker build -t springio/getir-spring-boot-docker .
 
-## step 2 run
+* step 2 run
 docker run -p 8080:8080 springio/getir-spring-boot-docker
 
 ## Postman Collection
 
-* You will find "readigisgood.postman_collection.json" collection in project structure inside resource/dev folder.
+* You will find "readingisgood.postman_collection.json" collection in project structure inside resource/dev folder.
 
 
 ## Technology stack
