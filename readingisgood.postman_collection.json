@@ -1,18 +1,21 @@
 {
 	"info": {
-		"_postman_id": "c4cfdb9d-2231-47ac-b95c-81ecf7f26dd7",
-		"name": "rig",
+		"_postman_id": "9c5e24b9-67f5-4a47-9ee0-6dc06c515537",
+		"name": "readingisgood",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Create Order",
+			"name": "authenticate",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"customerId\": 1,\r\n    \"bookRequestList\" : [\r\n        {\r\n            \"bookId\" : 1 \r\n        },\r\n        {\r\n            \"bookId\" : 3 \r\n        },\r\n        {\r\n            \"bookId\" : 2 \r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"username\":\"getir\",\r\n    \"password\":\"password\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,14 +23,42 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/orders",
+					"raw": "http://localhost:9090/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"rahul\",\r\n    \"author\": \"rahul\",\r\n    \"quantity\": 50,\r\n    \"amount\": 100.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"orders"
+						"customers"
 					]
 				}
 			},
@@ -36,6 +67,16 @@
 		{
 			"name": "Create Customer",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImV4cCI6MTY0NzcwMTMxNiwiaWF0IjoxNjQ3NjgzMzE2fQ.SjWwbZyR6D6dlMkO4G9CAzqEHfNS62vnW0IXGjFkwGC-449Ft4jrmJCJYJkO3QVnrnrDGwWmhM9TAFKEo5sX0g",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -56,6 +97,44 @@
 					"port": "8080",
 					"path": [
 						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZXRpciIsImV4cCI6MTY0NzcwMTE2NCwiaWF0IjoxNjQ3NjgzMTY0fQ.u0W-HxkFR6GTQVnl1JV76vuR8McN_zmKBmiC7Den3AZefPAScSPA1t_uxICyynneXLu9ETPyEyuA9ac-NbsdvQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": 3,\r\n    \"bookRequestList\" : [\r\n        {\r\n            \"bookId\" : 1 ,\r\n            \"quantity\" : 3\r\n        },\r\n        {\r\n            \"bookId\" : 2,\r\n            \"quantity\" : 3 \r\n        }\r\n       \r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
 					]
 				}
 			},
